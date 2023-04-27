@@ -7,8 +7,8 @@ use SicrediAPI\Domain\Token;
 
 class Client
 {
-    const BASE_URL = 'https://api-parceiro.sicredi.com.br';
-    const SANDBOX_BASE_URL = 'https://api-parceiro.sicredi.com.br/sb';
+    public const BASE_URL = 'https://api-parceiro.sicredi.com.br';
+    public const SANDBOX_BASE_URL = 'https://api-parceiro.sicredi.com.br/sb';
 
     private $apiKey;
     private $cooperative;
@@ -49,7 +49,7 @@ class Client
         ]);
 
         $data = json_decode($response->getBody(), true);
-        
+
         $this->token = Token::fromArray($data);
 
         return true;
@@ -71,7 +71,7 @@ class Client
         ]);
 
         $data = json_decode($response->getBody(), true);
-        
+
         $this->token = Token::fromArray($data);
 
         return true;

@@ -4,7 +4,8 @@ namespace SicrediAPI\Mappers;
 
 use SicrediAPI\Domain\DiscountConfiguration as DiscountConfigurationDomain;
 
-class DiscountConfiguration {
+class DiscountConfiguration
+{
     private $discounts;
 
     public function __construct(DiscountConfigurationDomain $discounts)
@@ -12,11 +13,13 @@ class DiscountConfiguration {
         $this->discounts = $discounts;
     }
 
-    private function getDiscountType() {
+    private function getDiscountType()
+    {
         return $this->discounts->getDiscountType() == DiscountConfigurationDomain::DISCOUNT_TYPE_PERCENTAGE ? 'PERCENTUAL' : 'VALOR';
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         $configuration = [
             'tipoDesconto' => $this->getDiscountType()
         ];

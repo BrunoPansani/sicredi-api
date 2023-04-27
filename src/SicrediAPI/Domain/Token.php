@@ -24,8 +24,8 @@ class Token
         string $tokenType,
         string $idToken,
         int $notBeforePolicy,
-        string $sessionState)
-    {
+        string $sessionState
+    ) {
         $this->scope = $scope;
         $this->accessToken = $accessToken;
         $this->refreshToken = $refreshToken;
@@ -93,7 +93,7 @@ class Token
         return time() > $this->issuedAt + $this->refreshExpiresIn;
     }
 
-    static public function fromArray(array $data): Token
+    public static function fromArray(array $data): Token
     {
         return new Token(
             $data['scope'],

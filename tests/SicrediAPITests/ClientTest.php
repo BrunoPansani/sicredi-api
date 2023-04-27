@@ -70,10 +70,10 @@ class ClientTest extends TestCase
      * @covers \SicrediAPI\Domain\Token::getExpiresIn
      * @covers \SicrediAPI\Domain\Token::getRefreshExpiresIn
      * @covers \SicrediAPI\Domain\Token::getRefreshToken
-     * 
-     * @return void 
-     * @throws InvalidArgumentException 
-     * @throws ExpectationFailedException 
+     *
+     * @return void
+     * @throws InvalidArgumentException
+     * @throws ExpectationFailedException
      */
     public function testAuthenticate()
     {
@@ -132,10 +132,10 @@ class ClientTest extends TestCase
      * @covers \SicrediAPI\Domain\Token::getTokenType
      * @covers \SicrediAPI\Domain\Token::isAccessTokenExpired
      * @covers \SicrediAPI\Domain\Token::isRefreshTokenExpired
-     * 
-     * @return void 
-     * @throws InvalidArgumentException 
-     * @throws ExpectationFailedException 
+     *
+     * @return void
+     * @throws InvalidArgumentException
+     * @throws ExpectationFailedException
      */
     public function testRefreshToken()
     {

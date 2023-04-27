@@ -4,7 +4,8 @@ namespace SicrediAPI\Mappers;
 
 use SicrediAPI\Domain\Boleto;
 
-class CreateBoleto {
+class CreateBoleto
+{
     private $boleto;
 
     public function __construct(Boleto $boleto)
@@ -12,7 +13,8 @@ class CreateBoleto {
         $this->boleto = $boleto;
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         $base = [
             'beneficiarioFinal' => (new Beneficiary($this->boleto->getBeneficiary()))->toArray(),
             'pagador' => (new Payee($this->boleto->getPayee()))->toArray(),
@@ -44,7 +46,7 @@ class CreateBoleto {
             array_merge($base, (new Information($this->boleto->getInformation()))->toArray());
         }
 
-        return array_filter($base, function($value) {
+        return array_filter($base, function ($value) {
             return !empty($value);
         });
     }

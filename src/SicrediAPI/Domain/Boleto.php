@@ -87,7 +87,7 @@ class Boleto
         if ($beneficiary->getDocument() === $payee->getDocument()) {
             throw new \InvalidArgumentException("Beneficiary document must be different than payee document");
         }
-        
+
         if (strlen($beneficiaryCode) !== 5) {
             throw new \InvalidArgumentException("Beneficiary code must have 5 digits");
         }

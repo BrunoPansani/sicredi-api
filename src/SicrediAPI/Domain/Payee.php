@@ -4,9 +4,8 @@ namespace SicrediAPI\Domain;
 
 class Payee
 {
-
-    const PERSON_KIND_NATURAL = 'person';
-    const PERSON_KIND_LEGAL = 'company';
+    public const PERSON_KIND_NATURAL = 'person';
+    public const PERSON_KIND_LEGAL = 'company';
 
     private $personKind;
     private $document;

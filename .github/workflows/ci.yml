@@ -99,3 +99,7 @@ jobs:
       - name: "Run tests with PHPUnit"
         timeout-minutes: 3
         run: "XDEBUG_MODE=coverage ./vendor/bin/phpunit tests --coverage-text --colors"
+
+      - name: "Run php-cs-fixer"
+        timeout-minutes: 3
+        run: "composer cs-dry-run"

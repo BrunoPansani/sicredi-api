@@ -1,8 +1,9 @@
-<?php 
+<?php
 
 namespace SicrediAPI\Domain;
 
-class Information {
+class Information
+{
     private $maxLength = 80;
     private $maxMessages = 5;
     private $messages = [];

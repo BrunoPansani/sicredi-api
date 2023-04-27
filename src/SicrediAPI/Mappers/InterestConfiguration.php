@@ -4,7 +4,8 @@ namespace SicrediAPI\Mappers;
 
 use SicrediAPI\Domain\InterestConfiguration as InterestConfigurationDomain;
 
-class InterestConfiguration {
+class InterestConfiguration
+{
     private $interest;
 
     public function __construct(InterestConfigurationDomain $interest)
@@ -12,11 +13,13 @@ class InterestConfiguration {
         $this->interest = $interest;
     }
 
-    private function getInterestType() {
+    private function getInterestType()
+    {
         return $this->interest->getInterestType() == InterestConfigurationDomain::TYPE_PERCENTAGE ? 'PERCENTUAL' : 'VALOR';
     }
 
-    public function toArray() {
+    public function toArray()
+    {
 
         $configuration = [
             'tipoJuros' => $this->getInterestType()

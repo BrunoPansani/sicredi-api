@@ -5,8 +5,8 @@ namespace SicrediAPI\Resources;
 use SicrediAPI\Domain\Boleto as BoletoDomain;
 use SicrediAPI\Mappers\CreateBoleto as CreateBoletoMapper;
 
-class Boleto extends ResourceAbstract {
-
+class Boleto extends ResourceAbstract
+{
     public function create(BoletoDomain $boleto)
     {
         $payload = (new CreateBoletoMapper($boleto))->toArray();

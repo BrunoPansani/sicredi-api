@@ -2,7 +2,8 @@
 
 namespace SicrediAPI\Mappers;
 
-class Messages {
+class Messages
+{
     private $message;
 
     public function __construct($messages)
@@ -10,11 +11,12 @@ class Messages {
         $this->message = $messages;
     }
 
-    public function toArray() {
+    public function toArray()
+    {
         if (empty($this->message)) {
             return [];
         }
-        
+
         return $this->message;
     }
 }

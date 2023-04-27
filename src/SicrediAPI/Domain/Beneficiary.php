@@ -2,10 +2,10 @@
 
 namespace SicrediAPI\Domain;
 
-class Beneficiary {
-
-    const PERSON_KIND_NATURAL = 'person';
-    const PERSON_KIND_LEGAL = 'company';
+class Beneficiary
+{
+    public const PERSON_KIND_NATURAL = 'person';
+    public const PERSON_KIND_LEGAL = 'company';
 
     private $document;
     private $personKind;
@@ -18,7 +18,7 @@ class Beneficiary {
     private $zipCode;
     private $phone;
     private $email;
-    
+
     public function __construct(
         string $name,
         string $document,
@@ -30,8 +30,8 @@ class Beneficiary {
         string $state = null,
         string $zipCode = null,
         string $phone = null,
-        string $email = null)
-    {
+        string $email = null
+    ) {
         // Person Kind must be one of the constants
         if (!in_array($personKind, [self::PERSON_KIND_NATURAL, self::PERSON_KIND_LEGAL])) {
             throw new \InvalidArgumentException("Person Kind must be one of 'person' or 'company'");

@@ -4,30 +4,30 @@ namespace SicrediAPI\Domain;
 
 use DateTime;
 
-class InterestConfiguration 
+class InterestConfiguration
 {
-    const TYPE_PERCENTAGE = 'percentage';
-    const TYPE_VALUE = 'value';
+    public const TYPE_PERCENTAGE = 'percentage';
+    public const TYPE_VALUE = 'value';
 
     /**
      * Days to auto protest after due date
      * @var mixed
      */
     private $daysAutoProtestAfter;
-    
+
     /**
      * Days to auto negativate after due date
      * @var mixed
      */
     private $daysAutoNegativateAfter;
-    
+
     /**
      * Days to consider the boleto valid after due date
      * If no value is set, will assume the value of auto liquidation (baixa automatica) defined in the contract
      * @var mixed
      */
     private $daysValidAfterDueDate;
-    
+
     /**
      * Interest Type can be percentage or value
      * @var string
@@ -94,7 +94,8 @@ class InterestConfiguration
         $this->penaltyAmount = $penaltyAmount;
     }
 
-    private function assertPositive($field, $fieldName, $forceInteger = false) {
+    private function assertPositive($field, $fieldName, $forceInteger = false)
+    {
         if (empty($field)) {
             return;
         }
@@ -108,7 +109,8 @@ class InterestConfiguration
         }
     }
 
-    public function validateAgainstAmount(float $amount) {
+    public function validateAgainstAmount(float $amount)
+    {
 
         // If interestType is value, interestAmount must be less than amount
         if ($this->interestType == self::TYPE_VALUE && $this->interestAmount >= $amount) {

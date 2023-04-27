@@ -5,10 +5,10 @@ namespace SicrediAPI\Domain;
 use DateTime;
 use SicrediAPI\Domain\Discount;
 
-class DiscountConfiguration 
+class DiscountConfiguration
 {
-    const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
-    const DISCOUNT_TYPE_VALUE = 'value';
+    public const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
+    public const DISCOUNT_TYPE_VALUE = 'value';
 
     private $discountType;
     private $earlyPaymentDiscount;
@@ -71,10 +71,11 @@ class DiscountConfiguration
         }, $discounts);
 
         $this->sumOfDiscounts = $sumOfDiscounts;
-        
+
     }
 
-    public function validateAgainstDueDate(DateTime $dueDate) {
+    public function validateAgainstDueDate(DateTime $dueDate)
+    {
         foreach ($this->getDiscounts() as $key => $item) {
             if ($item->getDate() >= $dueDate) {
                 throw new \InvalidArgumentException("Discount date must be less than due date on Discount " . $key + 1 . "}");
@@ -84,7 +85,8 @@ class DiscountConfiguration
         return true;
     }
 
-    public function validateAgainstAmount(float $amount) {
+    public function validateAgainstAmount(float $amount)
+    {
         // If discount type is amount, then $discountConfiguration->getSumOfDiscounts() must be less than $this->amount
         if ($this->getDiscountType() == DiscountConfiguration::DISCOUNT_TYPE_VALUE) {
 

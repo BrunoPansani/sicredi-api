@@ -4,7 +4,7 @@ namespace SicrediAPI\Domain;
 
 use DateTime;
 
-class Discount 
+class Discount
 {
     private $amount;
     private $date;
