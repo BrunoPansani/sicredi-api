@@ -4,7 +4,7 @@
     "type": "library",
     "autoload": {
         "files": [
-            "src/helpers.php"
+            "src/SicrediAPI/helpers.php"
         ],
         "psr-4": {
             "SicrediAPI\\": "src/SicrediAPI"

@@ -45,7 +45,11 @@
 				"Vue.volar",
 				"ms-azuretools.vscode-docker"
 			],
-            "settings": {}
+            "settings": {
+				"php.validate.executablePath": "/usr/local/bin/php",
+				"php.debug.executablePath": "/usr/local/bin/php",
+				"intelephense.environment.phpVersion": "7.4.33"
+			}
         }
     }
 

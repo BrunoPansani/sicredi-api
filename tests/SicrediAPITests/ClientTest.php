@@ -34,8 +34,10 @@ class ClientTest extends TestCase
 
         // Create a new instance of the Client class
         $this->client = new Client(
-            'https://example.com/api',
-            'API_KEY',
+            'api-key',
+            '9999',
+            '99',
+            '99999',
             $client
         );
     }
