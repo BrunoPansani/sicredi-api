@@ -1,5 +1,6 @@
 # Sicredi API
 
+![Tests, PHP, PHP CS Fixer](https://github.com/BrunoPansani/sicredi-api/actions/workflows/ci.yml/badge.svg)
 
 This package provides a PHP client for interacting with the Sicredi API. It allows developers to easily integrate Sicredi into their PHP applications. The client supports a wide range of features inside the Charges API, including creating and querying boletos, generating boletos slips, and retrieving payment reports.
 
