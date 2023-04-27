@@ -1,0 +1,27 @@
+{
+    "name": "brunopansani/sicredi-api",
+    "description": "A PHP SDK for the Sicredi API",
+    "type": "library",
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "SicrediAPI\\": "src/SicrediAPI"
+        }
+    },
+    "authors": [
+        {
+            "name": "Bruno Pansani",
+            "email": "bruno@pansani.dev"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.0",
+        "fakerphp/faker": "^1.21",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9"
+    }
+}
