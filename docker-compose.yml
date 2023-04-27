@@ -1,19 +1,37 @@
 version: '3'
 services:
+  #Nginx Service
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    ports: 
+      - "8080:80"
+    networks:
+      - internal
+    volumes:
+      - ./data/:/var/www/html
   
   #PHP Service
   sicredi-api:
     build:
       context: .
-      dockerfile: Dockerfile
-    # image: digitalocean.com/php # Talvez possamos mudar isso pra uma imagem diferente?
+      dockerfile: docker/php/Dockerfile
     container_name: sicredi-api
     restart: unless-stopped
     tty: true
+    networks:
+      - internal
     environment:
       SERVICE_NAME: sicredi-api
       SERVICE_TAGS: dev
+      XDEBUG_MODE: debug
+      XDEBUG_CONFIG: client_host=host.docker.internal client_port=9003
     working_dir: /var/www
     volumes:
       - ./:/var/www
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+
+networks:
+  internal:
+    driver: bridge

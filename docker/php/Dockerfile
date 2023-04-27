@@ -30,6 +30,10 @@ RUN docker-php-ext-install pdo_mysql zip exif pcntl bcmath
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg
 RUN docker-php-ext-install gd
 
+## Install xdebug
+RUN pecl install xdebug-3.1.6
+RUN docker-php-ext-enable xdebug
+
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
