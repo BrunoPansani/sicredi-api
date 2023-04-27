@@ -49,7 +49,7 @@ jobs:
         run: "composer validate --strict"
 
       - name: "Normalize composer.json"
-        run: "composer-normalize --dry-run"
+        run: "composer normalize --dry-run"
 
   tests:
     name: "Tests"
