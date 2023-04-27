@@ -98,4 +98,4 @@ jobs:
 
       - name: "Run tests with PHPUnit"
         timeout-minutes: 3
-        run: "vendor/bin/phpunit tests --verbose"
+        run: "XDEBUG_MODE=coverage ./vendor/bin/phpunit tests --coverage-text --colors"

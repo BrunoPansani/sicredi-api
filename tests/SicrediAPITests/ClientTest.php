@@ -28,7 +28,7 @@ class ClientTest extends TestCase
 
         // Create a mock HTTP client
         $this->httpMockHandler = new MockHandler([]);
-        
+
         $handlerStack = HandlerStack::create($this->httpMockHandler);
         $client = new \GuzzleHttp\Client(['handler' => $handlerStack]);
 
@@ -61,11 +61,15 @@ class ClientTest extends TestCase
     }
 
     /**
-     * @covers \SicrediAPI\Client::getAccessToken
-     * @covers \SicrediAPI\Client::getRefreshToken
-     * @covers \SicrediAPI\Client::getExpiresIn
-     * @covers \SicrediAPI\Client::getRefreshExpiresIn
-     * @covers \SicrediAPI\Client::getAuthenticatedAt
+     * @covers \SicrediAPI\Client::__construct
+     * @covers \SicrediAPI\Client::authenticate
+     * @covers \SicrediAPI\Client::getToken
+     * @covers \SicrediAPI\Domain\Token::__construct
+     * @covers \SicrediAPI\Domain\Token::fromArray
+     * @covers \SicrediAPI\Domain\Token::getAccessToken
+     * @covers \SicrediAPI\Domain\Token::getExpiresIn
+     * @covers \SicrediAPI\Domain\Token::getRefreshExpiresIn
+     * @covers \SicrediAPI\Domain\Token::getRefreshToken
      * 
      * @return void 
      * @throws InvalidArgumentException 
@@ -108,15 +112,33 @@ class ClientTest extends TestCase
         $this->assertSame($refreshToken, $token->getRefreshToken());
         $this->assertSame($expiresIn, $token->getExpiresIn());
         $this->assertSame($refreshExpiresIn, $token->getRefreshExpiresIn());
-
-        
     }
 
+    /**
+     * @covers \SicrediAPI\Client::__construct
+     * @covers \SicrediAPI\Client::authenticate
+     * @covers \SicrediAPI\Client::refreshToken
+     * @covers \SicrediAPI\Client::getToken
+     * @covers \SicrediAPI\Domain\Token::__construct
+     * @covers \SicrediAPI\Domain\Token::fromArray
+     * @covers \SicrediAPI\Domain\Token::getAccessToken
+     * @covers \SicrediAPI\Domain\Token::getExpiresIn
+     * @covers \SicrediAPI\Domain\Token::getIdToken
+     * @covers \SicrediAPI\Domain\Token::getNotBeforePolicy
+     * @covers \SicrediAPI\Domain\Token::getRefreshExpiresIn
+     * @covers \SicrediAPI\Domain\Token::getRefreshToken
+     * @covers \SicrediAPI\Domain\Token::getScope
+     * @covers \SicrediAPI\Domain\Token::getSessionState
+     * @covers \SicrediAPI\Domain\Token::getTokenType
+     * @covers \SicrediAPI\Domain\Token::isAccessTokenExpired
+     * @covers \SicrediAPI\Domain\Token::isRefreshTokenExpired
+     * 
+     * @return void 
+     * @throws InvalidArgumentException 
+     * @throws ExpectationFailedException 
+     */
     public function testRefreshToken()
     {
-
-        // Generate a random access token and refresh token
-
         $expectedToken = [
             'scope' => 'cobranca',
             'access_token' => $this->faker->md5,
@@ -160,7 +182,5 @@ class ClientTest extends TestCase
         $this->assertSame($newExpectedToken['scope'], $token->getScope());
         $this->assertSame(false, $token->isAccessTokenExpired());
         $this->assertSame(false, $token->isRefreshTokenExpired());
-
     }
 }
-
