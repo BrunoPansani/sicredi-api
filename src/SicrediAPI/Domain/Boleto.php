@@ -173,7 +173,7 @@ class Boleto
         $this->discountConfiguration = $discountConfiguration;
     }
 
-    public function getDiscounts(): DiscountConfiguration
+    public function getDiscounts()
     {
         return $this->discountConfiguration;
     }
@@ -184,7 +184,7 @@ class Boleto
         $this->interestConfiguration = $interestConfiguration;
     }
 
-    public function getInterests(): InterestConfiguration
+    public function getInterests()
     {
         return $this->interestConfiguration;
     }

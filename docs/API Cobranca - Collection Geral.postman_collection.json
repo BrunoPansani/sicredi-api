@@ -1,0 +1,1045 @@
+{
+	"info": {
+		"_postman_id": "711571c0-c091-4257-9001-8da37b5e4d11",
+		"name": "API Cobranca - Collection Geral",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12786553"
+	},
+	"item": [
+		{
+			"name": "Sandbox",
+			"item": [
+				{
+					"name": "Autenticação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							},
+							{
+								"key": "context",
+								"value": "COBRANCA"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "123456789",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "teste123",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "cobranca",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/auth/openapi/token",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"auth",
+								"openapi",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro Sensedia",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJ0eXAiOiJKV1QiLCJraWQiOiIzMWVkMTk1My02YzM1LTRjMWMtOGJmMy1jNTkwZGI4NzE4ZTciLCJhbGciOiJSUzI1NiJ9.eyJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJ0eXAiOiJCZWFyZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiIxMjM0NTY3ODkiLCJzaWQiOiJlYmMyYTlhYS02YWJjLTQ4NmEtYTg3Yy0wMTU5ZmMxYzVmN2YiLCJhY3IiOiIxIiwib3BlbmFwaV91c2VybmFtZSI6IjEyMzQ1Njc4OSIsIm9wZW5hcGlfY29udGV4dCI6IkNPQlJBTkNBIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sImF6cCI6Im9wZW5hcGktZ3ctc2Vuc2VkaWEiLCJzY29wZSI6ImNvYnJhbmNhIGVtYWlsIHByb2ZpbGUiLCJzZXNzaW9uX3N0YXRlIjoiZWJjMmE5YWEtNmFiYy00ODZhLWE4N2MtMDE1OWZjMWM1ZjdmIiwianRpIjoiZWJjMmE5YWEtNmFiYy00ODZhLWE4N2MtMDE1OWZjMWM1ZjdmIiwic3ViIjoiZjoyODEwM2MxMi1lNjkzLTRkZWMtYWVmNC1kMTNkMGQ4YTk4MmQ6Q09CUkFOQ0E6MTIzNDU2Nzg5IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkudWF0LnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJpYXQiOjE2NzU3Nzg1MTAsImV4cCI6MTY3NTc4MjExMCwiYXVkIjoiYWNjb3VudCJ9.Z_PL0k6z0GK8qqzy1dDn2elz0saLGWKK-O2rzVf2Z3h5yq6jVhb0_ORHowzBXfHi5_b-Iw--GlMD4vW7nbpUgCnHWqnkTcslijWhl3nCJ3V533cbKOqdn1f93hXQ_7Y9e7QGdln7JTcZBfPC5LSDk5yiF2JQU0v0L9Fuim1l-UJP2C4etH0jpjOAARYOOis8VOrDf82qB7TSgQaTspVQCz0fwSpwH9UTFCaUssfOnCrsE8tmkUB0tYm-1mCrDJVUA93w53-i1Fk10G7Ksoulo9cb-hTiINEv-EcjdiidafR0i-rgECLYdTcsuie6mg9eAdQAkllTfLlIkagiKL8s3g"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"beneficiarioFinal\":{\n      \"cep\":91250000,\n      \"cidade\":\"PORTO ALEGRE\",\n      \"documento\":\"65613259585\",\n      \"logradouro\":\"RUA DOUTOR VARGAS NETO 180\",\n      \"nome\":\"TESTE FAKE\",\n      \"numeroEndereco\":119,\n      \"tipoPessoa\":\"PESSOA_FISICA\",\n      \"uf\":\"RS\"\n   },\n   \"codigoBeneficiario\":\"12345\",\n   \"dataVencimento\":\"2023-04-01\",\n   \"especieDocumento\":\"DUPLICATA_MERCANTIL_INDICACAO\",\n   \"pagador\":{\n      \"cep\":\"91250000\",\n      \"cidade\":\"PORTO ALEGRE\",\n      \"documento\":\"35169335695\",\n      \"nome\":\"TESTE FAKE\",\n      \"tipoPessoa\":\"PESSOA_FISICA\",\n      \"endereco\":\"RUA DOUTOR VARGAS NETO 180\",\n      \"uf\":\"RS\"\n   },\n   \"tipoCobranca\":\"HIBRIDO\",\n   \"seuNumero\":\"TESTE\",\n   \"valor\":100.01,\n   \"informativos\": [\n    \"info 1\",\n    \"info 2\",\n    \"info 3\",\n    \"info 4\",\n    \"info 5\"\n  ],\n  \"mensagens\": [\n    \"mens 1\",\n    \"mens 2\",\n    \"mens 3\",\n    \"mens 4\"\n  ]\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Impressão",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "BEARER eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBU0ZSSm1VMTBwaWRpbzFlQ254cXUzV2VwaDFjX2xJWFJDVXk5ZGpTZ0drIn0.eyJleHAiOjE2NjA2NTg0MDgsImlhdCI6MTY2MDY1NDgwOCwianRpIjoiOWJiZmQyNzQtM2I0OC00N2E3LTk5OTEtNTdmMWJhMWVmMGY1IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkudWF0LnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjo4YjU0NzRmZi0xZThlLTRiNzYtOWYyYS1iNmExYTIxMzgzZjY6Q09CUkFOQ0E6MTIzNDU2Nzg5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiI1Mzk3ZmQzNS05YWQ2LTQ0YzUtYjY2Yy1kY2Y2MjE0Y2RlODYiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiI1Mzk3ZmQzNS05YWQ2LTQ0YzUtYjY2Yy1kY2Y2MjE0Y2RlODYiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMTIzNDU2Nzg5Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjEyMzQ1Njc4OSJ9.AKKPebvlHBALWglkW6HKw03E6v29U0SNC3h2WAeSYzonjktzEgqH34kFazX6nzhQRuL-8i25AAK9F-WK3y1GqNSN-Brs7zf8lZW6SLobSr201vU8V-d92LKi8ly11GkGXzerLIESw6pynx7Mf9588DJu69Hy1K4XdA0ybLnZJ49bqpHddvdi7NNKr1QJCK1z6o4ReCGMQTMqEALpfmm3DDCypxTX661aTmggKNyoVXFiiGXQ7ku4AmzHGyHVx6_oeYg2r61OSPLrkcIBYD0vyR2GJ4iIaYRhSDVYVqhDjQOGaiTrG5VfJaxJTYUCSDlUXWj42ASbVTDatoWWhdFSLw"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos/pdf?linhaDigitavel=74891121150012026789503123451084787040000000015",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "linhaDigitavel",
+									"value": "74891121150012026789503123451084787040000000015"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta NN",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJ0eXAiOiJKV1QiLCJraWQiOiIzMWVkMTk1My02YzM1LTRjMWMtOGJmMy1jNTkwZGI4NzE4ZTciLCJhbGciOiJSUzI1NiJ9.eyJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJ0eXAiOiJCZWFyZXIiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiIxMjM0NTY3ODkiLCJzaWQiOiJhNWQ3NzJiYy0zMTAwLTQxZmUtYmMwZi0yOWI4Yjc0NDU1NzgiLCJhY3IiOiIxIiwib3BlbmFwaV91c2VybmFtZSI6IjEyMzQ1Njc4OSIsIm9wZW5hcGlfY29udGV4dCI6IkNPQlJBTkNBIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sImF6cCI6Im9wZW5hcGktZ3ctc2Vuc2VkaWEiLCJzY29wZSI6ImNvYnJhbmNhIGVtYWlsIHByb2ZpbGUiLCJzZXNzaW9uX3N0YXRlIjoiYTVkNzcyYmMtMzEwMC00MWZlLWJjMGYtMjliOGI3NDQ1NTc4IiwianRpIjoiYTVkNzcyYmMtMzEwMC00MWZlLWJjMGYtMjliOGI3NDQ1NTc4Iiwic3ViIjoiZjo0MDUwNWQ4OS04YmI4LTRmZjUtYTI0Ny04MWI0MzI4ZGVkNTQ6Q09CUkFOQ0E6MTIzNDU2Nzg5IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkudWF0LnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJpYXQiOjE2Njc5OTcxMzAsImV4cCI6MTY2ODAwMDczMCwiYXVkIjoiYWNjb3VudCJ9.imQBilu04GH6XdvTwStQExIc_AZCsskolUBT5eAYzM66KAFBxVUzPjzIb4TfJntbX6VdL-mJVpkmha564QcLfuInVzhXMPdu_EKR6XaHfPgoaCJ23Noxw10o5MaQvdx2R5grCUWMVwriTA0S2H5fnTjTdahe2xNzb3VM2ItDliN7HLbFmx2cp0OV6MW3OXGLRs8t8lmc7lUCRkvYsJ4VAm9Zwh91xoKozzfwM68HLMgEO1anh_prRcbWgP119CdGxq3cA41iWDYCaTbeRVCs5uOioKy4cNmL3jlhGdep3Z_2an1vCDkFbsYYi-UuKQ2QYBBVCjl64ZiAK_C-Lr6kkg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos?codigoBeneficiario=12345&nossoNumero=211001293",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos"
+							],
+							"query": [
+								{
+									"key": "codigoBeneficiario",
+									"value": "12345"
+								},
+								{
+									"key": "nossoNumero",
+									"value": "211001293"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Baixa",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBU0ZSSm1VMTBwaWRpbzFlQ254cXUzV2VwaDFjX2xJWFJDVXk5ZGpTZ0drIn0.eyJleHAiOjE2NjA1OTY4NjEsImlhdCI6MTY2MDU5MzI2MSwianRpIjoiOThmOTk1YTktYThlOS00YTdjLWE0YzctMWRiMmNlOWYwYjIxIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkudWF0LnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjo4YjU0NzRmZi0xZThlLTRiNzYtOWYyYS1iNmExYTIxMzgzZjY6Q09CUkFOQ0E6MTIzNDU2Nzg5IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiJiMTBiMDJmNi1kNDA2LTRiM2MtOGMwMS01ODljZjdhMTI1YmUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIGVtYWlsIHByb2ZpbGUiLCJzaWQiOiJiMTBiMDJmNi1kNDA2LTRiM2MtOGMwMS01ODljZjdhMTI1YmUiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMTIzNDU2Nzg5Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjEyMzQ1Njc4OSJ9.AhkGpOuWv1JnX33GGzgFI4wzjoY2sljXRAYMpJjub-TB0WyltsPR62NlMM-IQehVcKjKdF24g7ITkUtbYK46Br_2_vf--FdEEmajU28SrCeiMxXszoJOmRQYywuVp0jT45Cb-NvRLRyt72oYEMHX_tVVxxNdSG14btfia9fcuDd2vTXfqvLuvUBu8RIofra6Lfki25OfPjjUBDwmFyYsbivAs6fjgCjqpjrySJ6fniJVOfgUEIGLX0aJU0zY108mbQayPza19U9d9kWCQ5Xr2f3xHLA9UUMEkPNOgxWx0yxTQpjtR1vCSp9f381UopvJbwheQ-5PYs2g98-4FvTUpg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos/211001292/baixa",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"211001292",
+								"baixa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Seu Numero",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUUMEkPNOgxWx0yxTQpjtR1vCSp9f381UopvJbwheQ-5PYs2g98-4FvTUpg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"seuNumero\": \"0123456789\"\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos/211001292/seu-numero",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"211001292",
+								"seu-numero"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Desconto",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSwaDFjX2eHAiOjE2NjA1OTY4NjEsImlhdCIEkPNOgxWx0yxTQpjtR1vCSp9f381UopvJbwheQ-5PYs2g98-4FvTUpg"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"valorDesconto1\": 3.25,\n  \"valorDesconto2\": 2.25,\n  \"valorDesconto3\": 1.25\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos/211001292/desconto",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"211001292",
+								"desconto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Data Vencimento",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJBU0ZSSm1VMTBwaWRpbzFlQ254cXUzV2nQp8t0khpDVer9ROZt7X_02qyU6gtx4ycyVc0xaj2Hv93A"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "6789"
+							},
+							{
+								"key": "posto",
+								"value": "03"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataVencimento\": \"2022-12-05\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/sb/cobranca/boleto/v1/boletos/211001292/data-vencimento",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"sb",
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"211001292",
+								"data-vencimento"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produção",
+			"item": [
+				{
+					"name": "Autenticação",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"//var jsonData = pm.response.json(); \r",
+									"\r",
+									"//pm.environment.set(\"token\", jsonData.access_token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"disabled": true
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							},
+							{
+								"key": "context",
+								"value": "COBRANCA"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "123450100",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "INSIRA_AQUI_CODIGO_ACESSO",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "cobranca",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/auth/openapi/token",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"auth",
+								"openapi",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cadastro",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "accept",
+								"value": "*/*",
+								"disabled": true
+							},
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Sms5QllxODJtNkFSZ0NGaDZtQnZBIn0.eyJleHAiOjE2Nzk1OTYyOTAsImlhdCI6MTY3OTU5NTk5MCwianRpIjoiY2ViMTUxODMtZWFlZi00ZGJjLWJkMzEtNThmY2M5MjA5NWNiIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjozMWY3ODE1MS1jMzdmLTQzOWYtYTIwOS02NjFjYTQ3MzkzYTE6Q09CUkFOQ0E6MDA0MTQwMTE2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiJiY2NjOWFmOS0wZjk0LTRhZTQtYjU4My0yOWMzMTI5NTk0YzEiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJiY2NjOWFmOS0wZjk0LTRhZTQtYjU4My0yOWMzMTI5NTk0YzEiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMDA0MTQwMTE2Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjAwNDE0MDExNiJ9.nIx1Bnjjzk3YQvBCOWsBb1xwc9vDqOPT-H1ldn3gZ1ha3Em2t9yR7ngeeWAsndKzI88Qg8DCXAwsNwRwV75I7toHIknFtWhbhVjHg7et8F7WqPfSvO2Ftx-cli57YcAlLJ13iRuKxtlKTXr-ukGdG3U4FARxFMx8rKk5KL075Mp2ZnoN-VqpU7DseFtf7xkPbRmqWBg_icGfCwXFdnLNQcfF1r75t-hxqPJmARSwL5UNKwdl1ltFSkDKFd3XL_k7q8MTceLimaiXJV5cxks14npqhdrDyyBp9dmHKARcwBMzBAaqSWqXPWMYhXrTOzn8AcnfSly_ssLsKcjseH2fxA"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"beneficiarioFinal\": {\r\n    \"cep\": 99999000,\r\n    \"cidade\": \"Porto Alegre\",\r\n    \"complemento\": \"apto 42\",\r\n    \"documento\": \"00055566677788\",\r\n    \"logradouro\": \"Rua do beneficiário final\",\r\n    \"nome\": \"Beneficiário final\",\r\n    \"numeroEndereco\": 104,\r\n    \"telefone\": \"05122233300\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"uf\": \"RS\"\r\n  },\r\n  \"codigoBeneficiario\": 12345,\r\n  \"dataDesconto1\": \"2030-02-25\",\r\n  \"dataDesconto2\": \"2030-02-26\",\r\n  \"dataDesconto3\": \"2030-02-27\",\r\n  \"dataVencimento\": \"2030-03-27\",\r\n  \"descontoAntecipado\": 0.01,\r\n  \"diasNegativacaoAuto\": 5,\r\n  \"diasProtestoAuto\": 3,\r\n  \"especieDocumento\": \"OUTROS\",\r\n  \"informativos\": [\r\n    \"informativo 1\",\r\n    \"informativo 2\",\r\n    \"informativo 3\",\r\n    \"informativo 4\",\r\n    \"informativo 5\"\r\n  ],\r\n  \"mensagens\": [\r\n    \"mensagem 1\",\r\n    \"mensagem 2\",\r\n    \"mensagem 3\",\r\n    \"mensagem 4\"\r\n  ],\r\n  \"multa\": 5.29,\r\n  \"nossoNumero\": 123456789,\r\n  \"postarBoleto\": \"NAO\",\r\n  \"seuNumero\": 1234567890,\r\n  \"tipoCobranca\": \"HIBRIDO\",\r\n  \"tipoDesconto\": \"VALOR\",\r\n  \"tipoJuros\": \"VALOR\",\r\n  \"juros\": 5.32,\r\n  \"tipoMulta\": \"PERCENTUAL\",\r\n  \"validadeAposVencimento\": 30,\r\n  \"valor\": 100.05,\r\n  \"valorDesconto1\": 3.25,\r\n  \"valorDesconto2\": 2.25,\r\n  \"valorDesconto3\": 1.25,\r\n  \"pagador\": {\r\n    \"cep\": 78000666,\r\n    \"cidade\": \"cidade do pagador\",\r\n    \"documento\": \"00055566677788\",\r\n    \"email\": \"pagador@gmail.com\",\r\n    \"endereco\": \"rua pagador, 45, bloco 2, sala 103\",\r\n    \"nome\": \"teste pagador\",\r\n    \"telefone\": \"05122233300\",\r\n    \"tipoPessoa\": \"PESSOA_FISICA\",\r\n    \"uf\": \"RS\"\r\n  }\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta NN",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Sms5QllxODJtNkFSZ0NGaDZtQnZBIn0.eyJleHAiOjE2Nzk1OTYyOTAsImlhdCI6MTY3OTU5NTk5MCwianRpIjoiY2ViMTUxODMtZWFlZi00ZGJjLWJkMzEtNThmY2M5MjA5NWNiIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjozMWY3ODE1MS1jMzdmLTQzOWYtYTIwOS02NjFjYTQ3MzkzYTE6Q09CUkFOQ0E6MDA0MTQwMTE2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiJiY2NjOWFmOS0wZjk0LTRhZTQtYjU4My0yOWMzMTI5NTk0YzEiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJiY2NjOWFmOS0wZjk0LTRhZTQtYjU4My0yOWMzMTI5NTk0YzEiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMDA0MTQwMTE2Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjAwNDE0MDExNiJ9.nIx1Bnjjzk3YQvBCOWsBb1xwc9vDqOPT-H1ldn3gZ1ha3Em2t9yR7ngeeWAsndKzI88Qg8DCXAwsNwRwV75I7toHIknFtWhbhVjHg7et8F7WqPfSvO2Ftx-cli57YcAlLJ13iRuKxtlKTXr-ukGdG3U4FARxFMx8rKk5KL075Mp2ZnoN-VqpU7DseFtf7xkPbRmqWBg_icGfCwXFdnLNQcfF1r75t-hxqPJmARSwL5UNKwdl1ltFSkDKFd3XL_k7q8MTceLimaiXJV5cxks14npqhdrDyyBp9dmHKARcwBMzBAaqSWqXPWMYhXrTOzn8AcnfSly_ssLsKcjseH2fxA"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos?codigoBeneficiario=12345&nossoNumero=600007201",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos"
+							],
+							"query": [
+								{
+									"key": "codigoBeneficiario",
+									"value": "12345"
+								},
+								{
+									"key": "nossoNumero",
+									"value": "600007201"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta Liquidados",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Sms5QllxODJtNkFSZ0NGaDZtQnZBIn0.eyJleHAiOjE2NjgwMTQyNTYsImlhdCI6MTY2ODAxMzk1NiwianRpIjoiYTIxZWIwOGQtZWUwMy00MDlkLWI1OGItZTA0YTgxYTcyMzFhIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjozMWY3ODE1MS1jMzdmLTQzOWYtYTIwOS02NjFjYTQ3MzkzYTE6Q09CUkFOQ0E6MDA0MTQwMTE2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiI5YTJjNjE0YS03MTk2LTQ4YTEtYTk4OS1kZWNjYzQxNGQxNWUiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIHByb2ZpbGUgZW1haWwiLCJzaWQiOiI5YTJjNjE0YS03MTk2LTQ4YTEtYTk4OS1kZWNjYzQxNGQxNWUiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMDA0MTQwMTE2Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjAwNDE0MDExNiJ9.G43XJoEyJlIToOoPS1Mp6Ff2T-JKBiZQJ8yLTFiwvKVjqNO0Pj-prnD5ayEPQWJQykaNNiXobxKjNZZOTM5y6U4qx_-YdhFuEoZSQZ7M4-bxpj4WdwQni30F-PnGdaxA3XRNLTr-6eP_iVhEssmGK7jPK5qJSqSNk8aP7680XNemySxLCxOQDuDK8Rpk5pjacNCuwLQ-S7BcgvLGXAodaYZ5J6uwM8QjXmND0q2NAoUrR3cuulxMG7z3rOXHE-A-BiR4dBF8iof314dXsSpbroLdgURTtmehHvRTNYZxfne7Ul80S34SVK_KCHG8WuUS9IFDhglO5_LeG-ZIZd2H2A"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/liquidados/dia?codigoBeneficiario=12345&dia=15/08/2022",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"liquidados",
+								"dia"
+							],
+							"query": [
+								{
+									"key": "codigoBeneficiario",
+									"value": "12345"
+								},
+								{
+									"key": "dia",
+									"value": "15/08/2022"
+								},
+								{
+									"key": "cpfCnpjBeneficiarioFinal",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Impressão",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Sms5QllxODJtNkFSZ0NGaDZtQnZBIn0.eyJleHAiOjE2Nzc2ODYzMjcsImlhdCI6MTY3NzY4NjAyNywianRpIjoiYWE4NjI3NjMtNGM3Mi00YTE3LTgxMGUtNTcyOTVlNDIwMGU2IiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjozMWY3ODE1MS1jMzdmLTQzOWYtYTIwOS02NjFjYTQ3MzkzYTE6Q09CUkFOQ0E6MDA0MTQwMTE2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiJhM2I3MGFlMi04YjRlLTQwMzQtODA4My1lNmM5ZTRjYTA2YTMiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIHByb2ZpbGUgZW1haWwiLCJzaWQiOiJhM2I3MGFlMi04YjRlLTQwMzQtODA4My1lNmM5ZTRjYTA2YTMiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMDA0MTQwMTE2Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjAwNDE0MDExNiJ9.b-xxDz46IfS2Rpdg5QVP-O9g4U9UisdmuJNc2LbVTgJ8f5Uficn7O-lV0-XLiKsFW3k1ffA39CIgeYil0JMifO-ieUYwdGzo_cR3Zilx1wsURFb6qBBVP5AjiLnp_NW_7KjRIkFZCMxwZplF-k6XePlFZw8uc-CUPFoZ_XqP3uQgfO_fcGr_F5Jh2Y2o9q3iz0bJ0ZSYX6DU3ZUYfH3g1HcGrLyCnTwE0ptbbIcDEr64_70kHdh6_V9zOKIWqbh4b6Kde42ZFu35Lk2m_Rve4KueeFoCPD-ybYNZkfVVGFm7Gps58UkgW3BNG3VbokrT4QV3aTOK5zsI52wqOEILKA"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/pdf?linhaDigitavel=74891160090070900116808004141050692780000000500",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"pdf"
+							],
+							"query": [
+								{
+									"key": "linhaDigitavel",
+									"value": "74891160090070900116808004141050692780000000500"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Baixa Título",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "0116"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Sms5QllxODJtNkFSZ0NGaDZtQnZBIn0.eyJleHAiOjE2NzUyNzY3MjcsImlhdCI6MTY3NTI3NjQyNywianRpIjoiMTdlNTIxYmQtZjEyYi00YmM4LWJiMjktZjMyYTc1N2I2OWFlIiwiaXNzIjoiaHR0cHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvdWQvcmVhbG1zL29wZW5hcGkiLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiZjozMWY3ODE1MS1jMzdmLTQzOWYtYTIwOS02NjFjYTQ3MzkzYTE6Q09CUkFOQ0E6MDA0MTQwMTE2IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoib3BlbmFwaS1ndy1zZW5zZWRpYSIsInNlc3Npb25fc3RhdGUiOiIyNjRjOGQ2MS00N2RmLTQzM2UtOWNjMi02ZWQ0YWIzN2E4N2QiLCJhY3IiOiIxIiwicmVhbG1fYWNjZXNzIjp7InJvbGVzIjpbImRlZmF1bHQtcm9sZXMtb3BlbmFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhY2NvdW50Ijp7InJvbGVzIjpbIm1hbmFnZS1hY2NvdW50IiwibWFuYWdlLWFjY291bnQtbGlua3MiLCJ2aWV3LXByb2ZpbGUiXX19LCJzY29wZSI6ImNvYnJhbmNhIHByb2ZpbGUgZW1haWwiLCJzaWQiOiIyNjRjOGQ2MS00N2RmLTQzM2UtOWNjMi02ZWQ0YWIzN2E4N2QiLCJvcGVuYXBpX3VzZXJuYW1lIjoiMDA0MTQwMTE2Iiwib3BlbmFwaV9jb250ZXh0IjoiQ09CUkFOQ0EiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsInByZWZlcnJlZF91c2VybmFtZSI6IjAwNDE0MDExNiJ9.W7aCD7gjdnXxiyU3gA9a3pVYMMRf1m9AI6zrtH5Qw1zJlSItn7lEDKy11yGNAY-1sC8LNoGkbwguoqrFKH1xO1QpUX0fkW3Xi6jGe8oAQKvmZqJPOKu3xxEUxZUAlkm5EXBl_pG-n5jsmEcot38E1AH_WmDg3m9YLR3N1_qHztA7Mb2d162x4qg6R1dK80wcn_4G5Ec95UGA-SXNQH-QZmlDOPLKP1Uv8izsaA0JJW_KZcggN-fPyjN1MpaZdFb17IPQpF8EOLTTaPXe6QAmc3BkpbBQpHMt3m_BH3V_RYTGPYFXTHTSSNaZ9fAdNl5uTzuxeVy269YZa8JK3nNTSw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/600006612/baixa",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"600006612",
+								"baixa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Vencimento",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsIUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Smt3m_BH3V_RYTGPYFXTHTSSNaZ9fAdNl5uTzuxeVy269YZa8JK3nNTSw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"dataVencimento\": \"2025-03-27\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/600006612/baixa",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"600006612",
+								"baixa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Seu Numero",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsIUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Smt3m_BH3V_RYTGPYFXTHTSSNaZ9fAdNl5uTzuxeVy269YZa8JK3nNTSw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"seuNumero\": \"0123456789\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/600006612/baixa",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"600006612",
+								"baixa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Altera Juros",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsIUIiwia2lkIiA6ICJxMlRFLXliYWxnNjIxSmRCMU9IX0w2Smt3m_BH3V_RYTGPYFXTHTSSNaZ9fAdNl5uTzuxeVy269YZa8JK3nNTSw"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"valorOuPercentual\": \"10.0\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/600006612/baixa",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"600006612",
+								"baixa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Instrução Desconto",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "bearer eyJhbGciOiJSUzI1NiIsInHM6Ly9hdXRoLW9wZW5hcGkucHJkLnNpY3JlZGkuY2xvQwE1WD_HdkouDGI55JHfRDHbWdUoor9rEgmoaW-AYR_7GZNzFgsWqxge3A"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "codigoBeneficiario",
+								"value": "12345"
+							},
+							{
+								"key": "cooperativa",
+								"value": "0100"
+							},
+							{
+								"key": "posto",
+								"value": "08"
+							},
+							{
+								"key": "x-api-key",
+								"value": "AAAAAAAA-BBBB-CCCC-DDDD-eeeeeeeee"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"valorDesconto1\": 0.50,\r\n  \"valorDesconto2\": 0.40,\r\n  \"valorDesconto3\": 0.30\r\n}"
+						},
+						"url": {
+							"raw": "https://api-parceiro.sicredi.com.br/cobranca/boleto/v1/boletos/211001292/desconto",
+							"protocol": "https",
+							"host": [
+								"api-parceiro",
+								"sicredi",
+								"com",
+								"br"
+							],
+							"path": [
+								"cobranca",
+								"boleto",
+								"v1",
+								"boletos",
+								"211001292",
+								"desconto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

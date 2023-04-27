@@ -12,6 +12,10 @@ class Information {
     }
 
     public function toArray() {
+        if (empty($this->information)) {
+            return [];
+        }
+        
         return $this->information->getLines();
     }
 }

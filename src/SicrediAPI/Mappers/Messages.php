@@ -11,6 +11,10 @@ class Messages {
     }
 
     public function toArray() {
-        return $this->message->getLines();
+        if (empty($this->message)) {
+            return [];
+        }
+        
+        return $this->message;
     }
 }

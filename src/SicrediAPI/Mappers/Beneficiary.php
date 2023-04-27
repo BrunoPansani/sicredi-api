@@ -4,7 +4,8 @@ namespace SicrediAPI\Mappers;
 
 use SicrediAPI\Domain\Beneficiary as BeneficiaryDomain;
 
-class Beneficiary {
+class Beneficiary
+{
     private $beneficiary;
 
     public function __construct(BeneficiaryDomain $beneficiary)
@@ -12,12 +13,14 @@ class Beneficiary {
         $this->beneficiary = $beneficiary;
     }
 
-    private function getPersonKind() {
+    private function getPersonKind()
+    {
         return $this->beneficiary->getPersonKind() == BeneficiaryDomain::PERSON_KIND_NATURAL ? 'PESSOA_FISICA' : 'PESSOA_JURIDICA';
     }
 
-    public function toArray() {
-        return [
+    public function toArray()
+    {
+        $beneficiary = [
             'documento' => $this->beneficiary->getDocument(),
             'tipoPessoa' => $this->getPersonKind(),
             'nome' => $this->beneficiary->getName(),
@@ -30,5 +33,9 @@ class Beneficiary {
             'telefone' => $this->beneficiary->getPhone(),
             'email' => $this->beneficiary->getEmail()
         ];
+
+        return array_filter($beneficiary, function ($value) {
+            return !empty($value);
+        });
     }
 }
