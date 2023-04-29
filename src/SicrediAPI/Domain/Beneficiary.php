@@ -10,6 +10,7 @@ class Beneficiary
     private $document;
     private $personKind;
     private $name;
+    private $code;
     private $address; // Logradouro
     private $city; //
     private $complement; // Complementto
@@ -22,7 +23,8 @@ class Beneficiary
     public function __construct(
         string $name,
         string $document,
-        string $personKind,
+        string $personKind = null,
+        string $code = null,
         string $address = null,
         string $city = null,
         string $complement = null,
@@ -33,7 +35,7 @@ class Beneficiary
         string $email = null
     ) {
         // Person Kind must be one of the constants
-        if (!in_array($personKind, [self::PERSON_KIND_NATURAL, self::PERSON_KIND_LEGAL])) {
+        if (!empty($personKind) && !in_array($personKind, [self::PERSON_KIND_NATURAL, self::PERSON_KIND_LEGAL])) {
             throw new \InvalidArgumentException("Person Kind must be one of 'person' or 'company'");
         }
 
@@ -50,6 +52,7 @@ class Beneficiary
         $this->document = filter_only_numbers($document);
         $this->personKind = $personKind;
         $this->name = $name;
+        $this->code = $code;
         $this->address = $address;
         $this->city = $city;
         $this->complement = $complement;
@@ -73,6 +76,11 @@ class Beneficiary
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
     }
 
     public function getAddress()

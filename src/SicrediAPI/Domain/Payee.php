@@ -10,6 +10,7 @@ class Payee
     private $personKind;
     private $document;
     private $name;
+    private $code;
     private $address;
     private $city;
     private $state;
@@ -20,7 +21,8 @@ class Payee
     public function __construct(
         string $name,
         string $document,
-        string $personKind,
+        string $personKind = null,
+        string $code = null,
         string $address = null,
         string $city = null,
         string $state = null,
@@ -29,7 +31,7 @@ class Payee
         string $email = null
     ) {
         // Person Kind must be one of the constants
-        if (!in_array($personKind, [self::PERSON_KIND_NATURAL, self::PERSON_KIND_LEGAL])) {
+        if (!empty($personKind) && !in_array($personKind, [self::PERSON_KIND_NATURAL, self::PERSON_KIND_LEGAL])) {
             throw new \InvalidArgumentException("Person Kind must be one of 'person' or 'company'");
         }
 
@@ -46,6 +48,7 @@ class Payee
         $this->personKind = $personKind;
         $this->document = filter_only_numbers($document);
         $this->name = $name;
+        $this->code = $code;
         $this->address = $address;
         $this->city = $city;
         $this->state = $state;
@@ -67,6 +70,11 @@ class Payee
     public function getName()
     {
         return $this->name;
+    }
+
+    public function getCode()
+    {
+        return $this->code;
     }
 
     public function getAddress()

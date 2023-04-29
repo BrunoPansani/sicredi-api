@@ -3,15 +3,15 @@
 namespace SicrediAPI\Resources;
 
 use SicrediAPI\Domain\Boleto as BoletoDomain;
-use SicrediAPI\Mappers\CreateBoleto as CreateBoletoMapper;
+use SicrediAPI\Domain\PaymentInformation;
+use SicrediAPI\Mappers\Boleto as BoletoMapper;
 
 class Boleto extends ResourceAbstract
 {
-    public function create(BoletoDomain $boleto)
+    public function create(BoletoDomain $boleto): BoletoDomain
     {
-        $payload = (new CreateBoletoMapper($boleto))->toArray();
+        $payload = BoletoMapper::mapCreateBoleto($boleto);
 
-        var_dump($payload);
         $response = $this->post('/cobranca/boleto/v1/boletos', [
             'json' => $payload,
             'headers' => [
@@ -20,10 +20,34 @@ class Boleto extends ResourceAbstract
             ]
         ]);
 
-        var_dump($response->getBody()->getContents());
-        die();
+        $paymentInformation = PaymentInformation::fromArray($response);
 
-        // return $response->getBody()->getContents();
+        $boleto->setPaymentInformation($paymentInformation);
+
+        if ($boleto->getOurNumber() === null) {
+            $boleto->setOurNumber($paymentInformation->getOurNumber());
+        }
+
+        return $boleto;
+    }
+
+    public function query(string $ourNumber): BoletoDomain
+    {
+        // boleto/v1/boletos?codigoBeneficiario=12345&nossoNumero=211001290
+        $response = $this->get('/cobranca/boleto/v1/boletos/', [
+            'query' => [
+                'codigoBeneficiario' => $this->apiClient->getBeneficiaryCode(),
+                'nossoNumero' => $ourNumber,
+            ],
+            'headers' => [
+                'cooperativa' => $this->apiClient->getCooperative(),
+                'posto' => $this->apiClient->getPost(),
+            ]
+        ]);
+
+        $boleto = BoletoMapper::mapFromQuery($response);
+
+        return $boleto;
     }
 
 }

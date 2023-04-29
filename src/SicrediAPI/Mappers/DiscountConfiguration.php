@@ -15,7 +15,7 @@ class DiscountConfiguration
 
     private function getDiscountType()
     {
-        return $this->discounts->getDiscountType() == DiscountConfigurationDomain::DISCOUNT_TYPE_PERCENTAGE ? 'PERCENTUAL' : 'VALOR';
+        return $this->discounts->getDiscountType() == DiscountConfigurationDomain::TYPE_PERCENTAGE ? 'PERCENTUAL' : 'VALOR';
     }
 
     public function toArray()

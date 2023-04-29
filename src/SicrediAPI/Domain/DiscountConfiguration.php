@@ -7,8 +7,8 @@ use SicrediAPI\Domain\Discount;
 
 class DiscountConfiguration
 {
-    public const DISCOUNT_TYPE_PERCENTAGE = 'percentage';
-    public const DISCOUNT_TYPE_VALUE = 'value';
+    public const TYPE_PERCENTAGE = 'percentage';
+    public const TYPE_VALUE = 'value';
 
     private $discountType;
     private $earlyPaymentDiscount;
@@ -21,7 +21,7 @@ class DiscountConfiguration
         float $earlyPaymentDiscount = null
     ) {
 
-        if ($discountType !== self::DISCOUNT_TYPE_PERCENTAGE && $discountType !== self::DISCOUNT_TYPE_VALUE) {
+        if ($discountType !== self::TYPE_PERCENTAGE && $discountType !== self::TYPE_VALUE) {
             throw new \InvalidArgumentException("Discount type must be \"percentage\" or \"value\"");
         }
 
@@ -60,7 +60,7 @@ class DiscountConfiguration
             }
 
             // If Percentual, amount must be less than 100
-            if ($this->discountType == self::DISCOUNT_TYPE_PERCENTAGE && $discount->getAmount() >= 100) {
+            if ($this->discountType == self::TYPE_PERCENTAGE && $discount->getAmount() >= 100) {
                 throw new \InvalidArgumentException("Discount amount must be less than 100%");
             }
 
@@ -88,7 +88,7 @@ class DiscountConfiguration
     public function validateAgainstAmount(float $amount)
     {
         // If discount type is amount, then $discountConfiguration->getSumOfDiscounts() must be less than $this->amount
-        if ($this->getDiscountType() == DiscountConfiguration::DISCOUNT_TYPE_VALUE) {
+        if ($this->getDiscountType() == DiscountConfiguration::TYPE_VALUE) {
 
             if ($this->getSumOfDiscounts() >= $amount) {
                 throw new \InvalidArgumentException("Sum of discounts must be less than the amount of the boleto");

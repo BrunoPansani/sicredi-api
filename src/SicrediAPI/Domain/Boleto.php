@@ -3,8 +3,6 @@
 namespace SicrediAPI\Domain;
 
 use DateTime;
-use SicrediAPI\Domain\DiscountConfiguration;
-use SicrediAPI\Domain\InterestConfiguration;
 
 class Boleto
 {
@@ -28,7 +26,11 @@ class Boleto
      */
     private $yourNumber;
     private $dueDate;
+    private $issueDate;
     private $amount;
+
+    private $wallet;
+    private $status;
 
     /**
      * Discounts configuration
@@ -45,16 +47,21 @@ class Boleto
     private $messages;
     private $information;
 
+    private $paymentInformation;
+
+    private $liquidation;
+
     public function __construct(
         Beneficiary $beneficiary,
         Payee $payee,
-        string $ourNumber = null,
-        string $yourNumber,
-        string $chargeKind,
-        int $beneficiaryCode,
-        string $documentType,
-        DateTime $dueDate,
         float $amount,
+        string $chargeKind = null,
+        int $beneficiaryCode = null,
+        string $documentType = null,
+        string $yourNumber,
+        DateTime $dueDate,
+        DateTime $issueDate = null,
+        string $ourNumber = null,
         DiscountConfiguration $discountConfiguration = null,
         InterestConfiguration $interestConfiguration = null,
         Messages $messages = null,
@@ -69,9 +76,15 @@ class Boleto
         $this->yourNumber = $yourNumber;
         $this->dueDate = $dueDate;
         $this->amount = $amount;
+        $this->issueDate = $issueDate;
+
+        // If no issued date is provided, use today
+        if (empty($issueDate)) {
+            $issueDate = new DateTime();
+        }
 
         // Due date must be greater or equal than today
-        if ($dueDate < new DateTime()) {
+        if ($dueDate < $issueDate) {
             throw new \InvalidArgumentException("Due date must be greater or equal than today");
         }
 
@@ -88,7 +101,7 @@ class Boleto
             throw new \InvalidArgumentException("Beneficiary document must be different than payee document");
         }
 
-        if (strlen($beneficiaryCode) !== 5) {
+        if (!empty($beneficiaryCode) && strlen($beneficiaryCode) !== 5) {
             throw new \InvalidArgumentException("Beneficiary code must have 5 digits");
         }
 
@@ -139,6 +152,11 @@ class Boleto
     public function getOurNumber()
     {
         return $this->ourNumber;
+    }
+
+    public function setOurNumber($ourNumber)
+    {
+        $this->ourNumber = $ourNumber;
     }
 
     public function getYourNumber()
@@ -197,6 +215,61 @@ class Boleto
     public function setInformation(Information $informatives)
     {
         $this->information = $informatives;
+    }
+
+    public function getPaymentInformation()
+    {
+        return $this->paymentInformation;
+    }
+
+    public function setPaymentInformation(PaymentInformation $paymentInformation)
+    {
+        $this->paymentInformation = $paymentInformation;
+    }
+
+    public function setYourNumber($yourNumber)
+    {
+        $this->yourNumber = $yourNumber;
+    }
+
+    public function getIssueDate()
+    {
+        return $this->issueDate;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    public function setStatus($status)
+    {
+        // TODO: validate status
+        // if (!in_array($status, ['PENDING', 'PAID', 'CANCELED'])) {
+        //     throw new \InvalidArgumentException("Invalid status");
+        // }
+
+        $this->status = $status;
+    }
+
+    public function setWallet($wallet)
+    {
+        $this->wallet = $wallet;
+    }
+
+    public function getWallet()
+    {
+        return $this->wallet;
+    }
+
+    public function getLiquidation()
+    {
+        return $this->liquidation;
+    }
+
+    public function setLiquidation(Liquidation $liquidation)
+    {
+        $this->liquidation = $liquidation;
     }
 
 }
