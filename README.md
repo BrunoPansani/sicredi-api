@@ -59,13 +59,12 @@ $boleto = new \SicrediAPI\Domain\Boleto(
         '50581718054',
         'person'
     )),
-    null,
-    '999999',
+    100.00,
     'DM',
     12345,
     'RECIBO',
-    new DateTime('2023-12-31'),
-    100.00
+    '999999',
+    new DateTime('2023-12-31')
 );
 ```
 
