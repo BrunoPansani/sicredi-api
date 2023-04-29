@@ -87,6 +87,13 @@ abstract class ResourceAbstract
         return $this->sandboxResponseFixes($response);
     }
 
+    /**
+     * Fix some issues with sandbox responses because it doesn't conform to the API documentation
+     * This needs a better solution in the future but for now it's ok
+     *
+     * @param array $response
+     * @return array
+     */
     private function sandboxResponseFixes($response)
     {
         if ($this->apiClient->getEnvironment() !== 'sandbox') {
@@ -95,14 +102,13 @@ abstract class ResourceAbstract
 
         /**
          * Payees must not have the same document key as the beneficiary
-         * Sadly, the Sandbox API's Query response doesn't obey by the same rules as the Create response
          */
         if (isset($response['pagador']['documento'])) {
             $response['pagador']['documento'] = '98765432100';
         }
 
         /**
-         * For each object inside the 'descontos' array, the 'dataLimite' should start with 2021-08-26 and add 2 days for each object
+         * Discount dates must be between issuance date and due date, and must be in crescent order
          */
         if (isset($response['descontos'])) {
             $date = DateTime::createFromFormat('Y-m-d', $response['dataEmissao']);

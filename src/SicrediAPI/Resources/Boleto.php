@@ -49,5 +49,4 @@ class Boleto extends ResourceAbstract
 
         return $boleto;
     }
-
 }
