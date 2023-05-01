@@ -1,12 +1,5 @@
 <?php
 
-use SicrediAPI\Domain\Boleto\Beneficiary;
-use SicrediAPI\Domain\Boleto\Payee;
-use SicrediAPI\Domain\Boleto\DiscountConfiguration;
-use SicrediAPI\Domain\Boleto\InterestConfiguration;
-use SicrediAPI\Domain\Boleto\Messages;
-use SicrediAPI\Domain\Boleto\Information;
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
@@ -30,5 +23,3 @@ $liquidations = $boletoClient->queryDailyLiquidations(DateTime::createFromFormat
 foreach ($liquidations as $key => $value) {
     var_dump($key);
 }
-
-// var_dump($liquidations);
