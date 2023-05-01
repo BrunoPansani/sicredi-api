@@ -1,9 +1,9 @@
 <?php
 
-namespace SicrediAPI\Domain;
+namespace SicrediAPI\Domain\Boleto;
 
 use DateTime;
-use SicrediAPI\Domain\Discount;
+use SicrediAPI\Domain\Boleto\Discount;
 
 class DiscountConfiguration
 {

@@ -2,7 +2,7 @@
 
 namespace SicrediAPI\Mappers;
 
-use SicrediAPI\Domain\DiscountConfiguration as DiscountConfigurationDomain;
+use SicrediAPI\Domain\Boleto\DiscountConfiguration as DiscountConfigurationDomain;
 
 class DiscountConfiguration
 {

@@ -2,7 +2,7 @@
 
 namespace SicrediAPI\Mappers;
 
-use SicrediAPI\Domain\Information as InformationDomain;
+use SicrediAPI\Domain\Boleto\Information as InformationDomain;
 
 class Information
 {

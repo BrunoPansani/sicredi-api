@@ -48,7 +48,7 @@ $boletoClient = $client->boleto();
 4. Create a new Boleto instance by passing the necessary parameters, such as beneficiary information, payee information, amount, and due date. For example:
 
 ```php
-$boleto = new \SicrediAPI\Domain\Boleto(
+$boleto = new \SicrediAPI\Domain\Boleto\Boleto(
     (new Beneficiary(
         'Jose da Silva',
         '86049253099',

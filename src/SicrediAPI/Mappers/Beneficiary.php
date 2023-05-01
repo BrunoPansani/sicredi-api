@@ -2,7 +2,7 @@
 
 namespace SicrediAPI\Mappers;
 
-use SicrediAPI\Domain\Beneficiary as BeneficiaryDomain;
+use SicrediAPI\Domain\Boleto\Beneficiary as BeneficiaryDomain;
 
 class Beneficiary
 {

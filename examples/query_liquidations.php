@@ -25,6 +25,6 @@ $client->authenticate($_ENV['SICREDI_USERNAME'], $_ENV['SICREDI_PASSWORD']);
 
 $boletoClient = $client->boleto();
 
-$boleto = $boletoClient->query('211001290');
+$liquidations = $boletoClient->queryDailyLiquidations(DateTime::createFromFormat('Y-m-d', '2021-09-01'));
 
-var_dump($boleto);
+var_dump($liquidations);

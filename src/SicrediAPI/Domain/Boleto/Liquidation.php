@@ -1,6 +1,6 @@
 <?php
 
-namespace SicrediAPI\Domain;
+namespace SicrediAPI\Domain\Boleto;
 
 class Liquidation
 {
@@ -11,13 +11,22 @@ class Liquidation
     private $interest;
     private $discount;
 
+    private $ourNumber;
+    private $yourNumber;
+    private $liquidationType;
+    private $originalAmount;
+
     public function __construct(
         \DateTime $liquidationDate,
         float $amount,
         float $penalty = null,
         float $reduction = null,
         float $interest = null,
-        float $discount = null
+        float $discount = null,
+        string $ourNumber = null,
+        string $yourNumber = null,
+        float $originalAmount = null,
+        string $liquidationType = null
     ) {
         $this->liquidationDate = $liquidationDate;
         $this->amount = $amount;
@@ -25,6 +34,10 @@ class Liquidation
         $this->reduction = $reduction;
         $this->interest = $interest;
         $this->discount = $discount;
+        $this->ourNumber = $ourNumber;
+        $this->yourNumber = $yourNumber;
+        $this->originalAmount = $originalAmount;
+        $this->liquidationType = $liquidationType;
     }
 
     public function getLiquidationDate(): \DateTime
@@ -57,6 +70,26 @@ class Liquidation
         return $this->discount;
     }
 
+    public function getOurNumber(): ?string
+    {
+        return $this->ourNumber;
+    }
+
+    public function getYourNumber(): ?string
+    {
+        return $this->yourNumber;
+    }
+
+    public function getLiquidationType(): ?string
+    {
+        return $this->liquidationType;
+    }
+    
+    public function getOriginalAmount(): ?float
+    {
+        return $this->originalAmount;
+    }
+
     public static function fromArray(array $data)
     {
         return new self(
@@ -67,6 +100,5 @@ class Liquidation
             $data['juros'],
             $data['desconto']
         );
-
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SicrediAPI\Mappers;
 
-use SicrediAPI\Domain\InterestConfiguration as InterestConfigurationDomain;
+use SicrediAPI\Domain\Boleto\InterestConfiguration as InterestConfigurationDomain;
 
 class InterestConfiguration
 {

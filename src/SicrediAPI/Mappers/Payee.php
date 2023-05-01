@@ -2,7 +2,7 @@
 
 namespace SicrediAPI\Mappers;
 
-use SicrediAPI\Domain\Payee as PayeeDomain;
+use SicrediAPI\Domain\Boleto\Payee as PayeeDomain;
 
 class Payee
 {

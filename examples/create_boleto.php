@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use SicrediAPI\Domain\Beneficiary;
-use SicrediAPI\Domain\Payee;
+use SicrediAPI\Domain\Boleto\Beneficiary;
+use SicrediAPI\Domain\Boleto\Payee;
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -21,7 +21,7 @@ $client->authenticate($_ENV['SICREDI_USERNAME'], $_ENV['SICREDI_PASSWORD']);
 
 $boletoClient = $client->boleto();
 
-$boleto = new \SicrediAPI\Domain\Boleto(
+$boleto = new \SicrediAPI\Domain\Boleto\Boleto(
     (new Beneficiary(
         'Jose da Silva',
         '86049253099',

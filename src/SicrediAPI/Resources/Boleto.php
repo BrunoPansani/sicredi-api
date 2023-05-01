@@ -2,8 +2,11 @@
 
 namespace SicrediAPI\Resources;
 
-use SicrediAPI\Domain\Boleto as BoletoDomain;
-use SicrediAPI\Domain\PaymentInformation;
+use DateTime;
+use GuzzleHttp\Exception\GuzzleException;
+use SicrediAPI\Domain\Boleto\Boleto as BoletoDomain;
+use SicrediAPI\Domain\Boleto\Liquidation;
+use SicrediAPI\Domain\Boleto\PaymentInformation;
 use SicrediAPI\Mappers\Boleto as BoletoMapper;
 
 class Boleto extends ResourceAbstract
@@ -49,4 +52,31 @@ class Boleto extends ResourceAbstract
 
         return $boleto;
     }
+
+    /**
+     * Returns the Boletos liquidated in a specific day
+     * @param DateTime $day 
+     * @return Liquidation[]
+     * @throws GuzzleException 
+     */
+    public function queryDailyLiquidations(\DateTime $day, int $page = 1) {
+
+        // /cobranca/boleto/v1/boletos/liquidados/dia?codigoBeneficiario=12345&dia=15/08/2022
+
+        $response = $this->get('/cobranca/boleto/v1/boletos/liquidados/dia', [
+            'query' => [
+                'codigoBeneficiario' => $this->apiClient->getBeneficiaryCode(),
+                'dia' => $day->format('d/m/Y'),
+            ],
+            'headers' => [
+                'cooperativa' => $this->apiClient->getCooperative(),
+                'posto' => $this->apiClient->getPost(),
+            ]
+        ]);
+
+        $liquidations = BoletoMapper::mapFromQueryDailyLiquidations($response);
+
+        return $liquidations;
+    }
+
 }

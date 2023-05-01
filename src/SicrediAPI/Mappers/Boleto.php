@@ -3,15 +3,15 @@
 namespace SicrediAPI\Mappers;
 
 use DateTime;
-use SicrediAPI\Domain\Boleto as BoletoDomain;
-use SicrediAPI\Domain\PaymentInformation;
-use SicrediAPI\Domain\DiscountConfiguration as DiscountConfigurationDomain;
-use SicrediAPI\Domain\InterestConfiguration as InterestConfigurationDomain;
-use SicrediAPI\Domain\Beneficiary as BeneficiaryDomain;
-use SicrediAPI\Domain\Payee as PayeeDomain;
-use SicrediAPI\Domain\Messages as MessagesDomain;
-use SicrediAPI\Domain\Information as InformationDomain;
-use SicrediAPI\Domain\Liquidation as LiquidationDomain;
+use SicrediAPI\Domain\Boleto\Boleto as BoletoDomain;
+use SicrediAPI\Domain\Boleto\PaymentInformation;
+use SicrediAPI\Domain\Boleto\DiscountConfiguration as DiscountConfigurationDomain;
+use SicrediAPI\Domain\Boleto\InterestConfiguration as InterestConfigurationDomain;
+use SicrediAPI\Domain\Boleto\Beneficiary as BeneficiaryDomain;
+use SicrediAPI\Domain\Boleto\Payee as PayeeDomain;
+use SicrediAPI\Domain\Boleto\Messages as MessagesDomain;
+use SicrediAPI\Domain\Boleto\Information as InformationDomain;
+use SicrediAPI\Domain\Boleto\Liquidation as LiquidationDomain;
 
 class Boleto
 {
@@ -212,5 +212,40 @@ class Boleto
         }
 
         return $boleto;
+    }
+
+    /**
+     * @param array $data
+     * @return BoletoDomain
+     */
+    public static function mapFromQueryDailyLiquidations(array $data)
+    {
+        if (empty($data['items'])) {
+            return [];
+        }
+
+        $liquidations = [];
+
+        foreach ($data['items'] as $item) {
+            // dataPagamento = 2021-09-01 07:23:28.7
+            $date = DateTime::createFromFormat('Y-m-d H:i:s.u', $item['dataPagamento']);
+            $liquidation = new LiquidationDomain(
+                $date,
+                (float) $item['valorLiquidado'],
+                (float) $item['multaLiquida'],
+                (float) $item['abatimentoLiquido'],
+                (float) $item['jurosLiquido'],
+                (float) $item['descontoLiquido'],
+                (string) $item['nossoNumero'],
+                (string) $item['seuNumero'],
+                (float) $item['valor'],
+                (string) $item['tipoLiquidacao']
+            );
+
+            $liquidations[] = $liquidation;
+        }
+
+        return $liquidations;
+
     }
 }
