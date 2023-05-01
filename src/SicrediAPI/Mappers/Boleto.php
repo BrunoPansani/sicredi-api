@@ -220,13 +220,13 @@ class Boleto
      */
     public static function mapFromQueryDailyLiquidations(array $data)
     {
-        if (empty($data['items'])) {
+        if (empty($data)) {
             return [];
         }
 
         $liquidations = [];
 
-        foreach ($data['items'] as $item) {
+        foreach ($data as $item) {
             // dataPagamento = 2021-09-01 07:23:28.7
             $date = DateTime::createFromFormat('Y-m-d H:i:s.u', $item['dataPagamento']);
             $liquidation = new LiquidationDomain(

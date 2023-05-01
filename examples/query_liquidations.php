@@ -27,4 +27,8 @@ $boletoClient = $client->boleto();
 
 $liquidations = $boletoClient->queryDailyLiquidations(DateTime::createFromFormat('Y-m-d', '2021-09-01'));
 
-var_dump($liquidations);
+foreach ($liquidations as $key => $value) {
+    var_dump($key);
+}
+
+// var_dump($liquidations);

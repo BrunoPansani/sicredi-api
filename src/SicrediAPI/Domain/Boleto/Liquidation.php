@@ -84,7 +84,7 @@ class Liquidation
     {
         return $this->liquidationType;
     }
-    
+
     public function getOriginalAmount(): ?float
     {
         return $this->originalAmount;

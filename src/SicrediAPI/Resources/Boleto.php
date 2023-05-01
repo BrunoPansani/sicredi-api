@@ -36,7 +36,6 @@ class Boleto extends ResourceAbstract
 
     public function query(string $ourNumber): BoletoDomain
     {
-        // boleto/v1/boletos?codigoBeneficiario=12345&nossoNumero=211001290
         $response = $this->get('/cobranca/boleto/v1/boletos/', [
             'query' => [
                 'codigoBeneficiario' => $this->apiClient->getBeneficiaryCode(),
@@ -54,19 +53,39 @@ class Boleto extends ResourceAbstract
     }
 
     /**
-     * Returns the Boletos liquidated in a specific day
-     * @param DateTime $day 
-     * @return Liquidation[]
-     * @throws GuzzleException 
+     * Returns the Boletos liquidated in a specific day.
+     * This method returns an instance of Meta\Paginator, which is an iterable object.
+     * Upon reaching the end of the page, the next page is automatically fetched.
+     * Beware of the performance implications of this method. Memory usage will increase as more pages are fetched.
+     *
+     * @param DateTime $day
+     * @return Meta\Paginator
+     * @throws GuzzleException
      */
-    public function queryDailyLiquidations(\DateTime $day, int $page = 1) {
+    public function queryDailyLiquidations(\DateTime $day)
+    {
+        $liquidations = new Meta\Paginator($this, function ($page) use ($day) {
+            return $this->getDailyLiquidationsByPage($page, $day);
+        }, function ($items) {
+            return BoletoMapper::mapFromQueryDailyLiquidations($items);
+        });
 
-        // /cobranca/boleto/v1/boletos/liquidados/dia?codigoBeneficiario=12345&dia=15/08/2022
+        return $liquidations;
+    }
 
+    /**
+     * Returns the Boletos liquidated in a specific day
+     * @param DateTime $day
+     * @return Liquidation[]
+     * @throws GuzzleException
+     */
+    private function getDailyLiquidationsByPage(int $page = 1, \DateTime $day)
+    {
         $response = $this->get('/cobranca/boleto/v1/boletos/liquidados/dia', [
             'query' => [
                 'codigoBeneficiario' => $this->apiClient->getBeneficiaryCode(),
                 'dia' => $day->format('d/m/Y'),
+                'pagina' => $page,
             ],
             'headers' => [
                 'cooperativa' => $this->apiClient->getCooperative(),
@@ -74,9 +93,7 @@ class Boleto extends ResourceAbstract
             ]
         ]);
 
-        $liquidations = BoletoMapper::mapFromQueryDailyLiquidations($response);
-
-        return $liquidations;
+        return $response;
     }
 
 }
