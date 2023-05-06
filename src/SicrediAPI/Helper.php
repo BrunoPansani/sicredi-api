@@ -4,7 +4,7 @@ namespace SicrediAPI;
 
 class Helper
 {
-    const BRAZILIAN_STATES = [
+    public const BRAZILIAN_STATES = [
         'AC' => 'Acre',
         'AL' => 'Alagoas',
         'AP' => 'Amapá',
@@ -48,8 +48,8 @@ class Helper
 
     /**
      * Try to abbreviate a brazilian state name
-     * @param string $search 
-     * @return mixed 
+     * @param string $search
+     * @return mixed
      */
     public static function abbreviate_state_name($search)
     {

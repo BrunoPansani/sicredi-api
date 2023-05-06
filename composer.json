@@ -3,7 +3,6 @@
     "description": "A PHP SDK for the Sicredi API",
     "license": "MIT",
     "type": "library",
-    "version": "0.0.1",
     "keywords": [
         "sicredi",
         "sdk",
