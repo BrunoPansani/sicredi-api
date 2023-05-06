@@ -40,7 +40,7 @@ class Beneficiary
         }
 
         // UF must be one of BRASIL's states
-        if (!empty($state) && !valid_brazilian_state($state)) {
+        if (!empty($state) && !\SicrediAPI\Helper::valid_brazilian_state($state)) {
             throw new \InvalidArgumentException("UF must be the abbreviation of a Brazilian state");
         }
 
@@ -49,7 +49,7 @@ class Beneficiary
             throw new \InvalidArgumentException("E-mail must be valid");
         }
 
-        $this->document = filter_only_numbers($document);
+        $this->document = \SicrediAPI\Helper::filter_only_numbers($document);
         $this->personKind = $personKind;
         $this->name = $name;
         $this->code = $code;
@@ -58,8 +58,8 @@ class Beneficiary
         $this->complement = $complement;
         $this->addressNumber = $addressNumber;
         $this->state = $state;
-        $this->zipCode = filter_only_numbers($zipCode);
-        $this->phone = filter_only_numbers($phone);
+        $this->zipCode = \SicrediAPI\Helper::filter_only_numbers($zipCode);
+        $this->phone = \SicrediAPI\Helper::filter_only_numbers($phone);
         $this->email = $email;
     }
 

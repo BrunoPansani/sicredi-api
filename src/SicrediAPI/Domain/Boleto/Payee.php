@@ -36,7 +36,7 @@ class Payee
         }
 
         // UF must be one of BRASIL's states
-        if (!empty($state) && !valid_brazilian_state($state)) {
+        if (!empty($state) && !\SicrediAPI\Helper::valid_brazilian_state($state)) {
             throw new \InvalidArgumentException("UF must be the abbreviation of a Brazilian state");
         }
 
@@ -46,14 +46,14 @@ class Payee
         }
 
         $this->personKind = $personKind;
-        $this->document = filter_only_numbers($document);
+        $this->document = \SicrediAPI\Helper::filter_only_numbers($document);
         $this->name = $name;
         $this->code = $code;
         $this->address = $address;
         $this->city = $city;
         $this->state = $state;
-        $this->zipCode = filter_only_numbers($zipCode);
-        $this->phone = filter_only_numbers($phone);
+        $this->zipCode = \SicrediAPI\Helper::filter_only_numbers($zipCode);
+        $this->phone = \SicrediAPI\Helper::filter_only_numbers($phone);
         $this->email = $email;
     }
 
