@@ -80,8 +80,12 @@ abstract class ResourceAbstract
         return $this->response($response);
     }
 
-    private function response($response)
+    private function response(\Psr\Http\Message\ResponseInterface $response)
     {
+        if ($response->getHeader('Content-Type')[0] != 'application/json') {
+            return $response->getBody()->getContents();
+        }
+
         $response = json_decode($response->getBody()->getContents(), true);
 
         return $this->sandboxResponseFixes($response);

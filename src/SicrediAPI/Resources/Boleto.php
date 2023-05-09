@@ -96,4 +96,15 @@ class Boleto extends ResourceAbstract
         return $response;
     }
 
+    public function print(string $numericRepresentation)
+    {
+        $response = $this->get('/cobranca/boleto/v1/boletos/pdf', [
+            'query' => [
+                'linhaDigitavel' => $numericRepresentation
+            ]
+        ], true);
+
+        return $response;
+    }
+
 }
