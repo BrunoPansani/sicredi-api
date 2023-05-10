@@ -55,7 +55,7 @@ abstract class ResourceAbstract
         try {
             $response = $this->apiClient->getHttpClient()->post($this->apiClient->getBaseUrl() . $url, $this->buildRequestOptions($options));
         } catch (\GuzzleHttp\Exception\ClientException $th) {
-            $response = $th->getResponse();
+            $response = $th->getResponse()->getBody()->getContents();
             return $response;
         }
 

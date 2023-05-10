@@ -52,7 +52,7 @@ class Boleto
     private $liquidation;
 
     public function __construct(
-        Beneficiary $beneficiary,
+        Beneficiary $finalBeneficiary = null,
         Payee $payee,
         float $amount,
         string $chargeKind = null,
@@ -69,7 +69,7 @@ class Boleto
     ) {
         $this->chargeKind = $chargeKind;
         $this->beneficiaryCode = $beneficiaryCode;
-        $this->beneficiary = $beneficiary;
+        $this->beneficiary = $finalBeneficiary;
         $this->payee = $payee;
         $this->documentType = $documentType;
         $this->ourNumber = $ourNumber;
@@ -97,7 +97,7 @@ class Boleto
             throw new \InvalidArgumentException("Your number must have at most 10 characters");
         }
 
-        if ($beneficiary->getDocument() === $payee->getDocument()) {
+        if (isset($finalBeneficiary) && $finalBeneficiary->getDocument() === $payee->getDocument()) {
             throw new \InvalidArgumentException("Beneficiary document must be different than payee document");
         }
 
@@ -134,7 +134,7 @@ class Boleto
         return $this->beneficiaryCode;
     }
 
-    public function getBeneficiary(): Beneficiary
+    public function getBeneficiary()
     {
         return $this->beneficiary;
     }

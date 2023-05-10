@@ -22,9 +22,9 @@ class Token
         int $expiresIn,
         int $refreshExpiresIn,
         string $tokenType,
-        string $idToken,
-        int $notBeforePolicy,
-        string $sessionState
+        string $idToken = null,
+        int $notBeforePolicy = null,
+        string $sessionState = null
     ) {
         $this->scope = $scope;
         $this->accessToken = $accessToken;
