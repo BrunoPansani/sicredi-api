@@ -13,8 +13,7 @@ $client = new \SicrediAPI\Client(
     $_ENV['SICREDI_COOPERATIVE'],
     $_ENV['SICREDI_POST'],
     $_ENV['SICREDI_BENEFICIARY'],
-    new \GuzzleHttp\Client(),
-    true
+    new \GuzzleHttp\Client()
 );
 
 $client->authenticate($_ENV['SICREDI_USERNAME'], $_ENV['SICREDI_PASSWORD']);
@@ -22,22 +21,23 @@ $client->authenticate($_ENV['SICREDI_USERNAME'], $_ENV['SICREDI_PASSWORD']);
 $boletoClient = $client->boleto();
 
 $boleto = new \SicrediAPI\Domain\Boleto\Boleto(
-    (new Beneficiary(
-        'Jose da Silva',
-        '86049253099',
-        'person'
-    )),
+    null,
     (new Payee(
-        'Maria de Lurdes',
-        '50581718054',
-        'person'
+        'Bruno Henrique Pansani',
+        '39423415814',
+        'person',
+        null,
+        'Rua dos Bobos, 0',
+        'Campinas',
+        'SP',
+        '13091410'
     )),
-    100.00,
+    10.00,
     'DM',
-    12345,
+    97963,
     'RECIBO',
     '999999',
-    new DateTime('2023-12-31')
+    new DateTime('2023-05-15')
 );
 
 $boletoClient->create($boleto);

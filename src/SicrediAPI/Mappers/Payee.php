@@ -24,7 +24,7 @@ class Payee
             'nome' => $this->payee->getName(),
             'documento' => $this->payee->getDocument(),
             'tipoPessoa' => $this->getPersonKind(),
-            'endereco' => $this->payee->getAddress(),
+            'endereco' => $this->payee->getAddress(), // TODO: Abreviate this address
             'cidade' => $this->payee->getCity(),
             'uf' => $this->payee->getState(),
             'cep' => $this->payee->getZipCode(),
